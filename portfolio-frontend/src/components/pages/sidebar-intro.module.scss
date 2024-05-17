@@ -1,0 +1,25 @@
+.parent {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: repeat(12, 1fr);
+	gap: 3px 3px;
+
+	.label {
+		border: 1px solid gray;
+		border-radius: 10px;
+		writing-mode: vertical-rl;
+		text-orientation: mixed;
+		transform: rotate(180deg);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		grid-column: span 1;
+		grid-row: span 12;
+		font-size: 70px;
+		color: rgb(211, 211, 211);
+		background: gray;
+		grid-row-start: 1;
+		grid-row-end: 13;
+		grid-column-start: 1;
+	}
+}
