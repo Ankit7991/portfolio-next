@@ -1,0 +1,10 @@
+$fontSize: 60px;
+
+.info {
+	.name {
+		font-size: $fontSize;
+	}
+	.mid {
+		font-size: $fontSize / 2;
+	}
+}

@@ -13,11 +13,15 @@
 
 body {
 	margin: 0;
-	padding: 10px;
 	width: 100%;
 	height: 100vh;
 	overflow: hidden;
 	@include josefinSansFont();
+
+	&.dark {
+		background:  black;
+		color: white;
+	}
 }
 
 .fluid {
