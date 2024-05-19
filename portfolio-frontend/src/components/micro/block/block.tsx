@@ -1,5 +1,5 @@
 import { IReactChildren } from "@/types/comp-params.types";
-import React, { ReactNode } from "react";
+import React, { ReactNode, FC } from "react";
 import styles from "./block.module.scss";
 
 export interface IBlockParams extends IReactChildren {

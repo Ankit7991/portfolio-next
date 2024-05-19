@@ -52,7 +52,9 @@ export default function Home() {
 						
 						return <>
 							<Block rowStart={el.rowLine} colStart={el.colLine}>
-								{el.info?.text}
+								<div className="fluid center cursor-pointer">
+									{el.info?.text}
+								</div>
 							</Block>
 						</>
 					})
