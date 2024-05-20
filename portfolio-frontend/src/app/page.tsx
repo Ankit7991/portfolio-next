@@ -6,6 +6,8 @@ import Block from "@/components/micro/block/block";
 import LogoFindAnkit from "@/components/sections/logo/m.findankit";
 import { useEffect, useMemo, useState } from "react";
 import { useRandomPositions } from "@/hooks/get-random-positions.hook";
+import Link from "next/link";
+import RandomTiles from "@/components/micro/random-tiles/random-tiles";
 
 const gte = (a: number, ref: number) => typeof(ref) === 'number' ? a >= ref : false;
 const lte = (b: number, ref: number) => typeof(ref) === 'number' ? b <= ref : false;
@@ -14,11 +16,7 @@ const btwn = (max: number, min: number, ref: number) => gte(max, ref) && lte(min
 
 export default function Home() {
 
-	const {freeSpaces, randomSpaces} = useRandomPositions([{text: 'ankit'}, {text: 'node'}], [
-    [3, 13, 2, 9],
-    [1, 13, 1, 2],
-    [5, 6, 10, 11],
-  ]);
+	
 
   return (
     <main className="fluid">
@@ -47,18 +45,26 @@ export default function Home() {
             </div>
           </div>
         </Block>
-				{
+				<RandomTiles usedSpaces={[
+					[3, 13, 2, 9],
+					[1, 13, 1, 2],
+					[5, 6, 10, 11],
+				]}/>
+				{/* {
 					randomSpaces?.map(el => {
-						
 						return <>
 							<Block rowStart={el.rowLine} colStart={el.colLine}>
 								<div className="fluid center cursor-pointer">
-									{el.info?.text}
+									{el.info?.url ? 
+										<>
+											<Link href={el.info?.url}>{el.info?.text}</Link> 
+										</>
+										: el.info?.text}
 								</div>
 							</Block>
 						</>
 					})
-				}
+				} */}
       </SideBarIntro>
     </main>
   );
