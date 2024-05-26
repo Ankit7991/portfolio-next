@@ -12,7 +12,7 @@ export default function PortfolioItem({text, imageUrl, link}: IPortfolioItemPara
 	return (
 		<div className={`${styles.item}`}>
 			<div className={`${styles.imageContainer} fluid`}>
-				<img className={`${styles.image} fluid`} src={imageUrl} width={220} height={180} alt='surveybooker' quality={100}/>
+				<img className={`${styles.image} fluid`} src={imageUrl} width={220} height={180} alt='surveybooker' />
 			</div>
 			<div className={`${styles.infoContainer} center fluid`}>
 				<a href={link} target="new">{text}🔗</a>
