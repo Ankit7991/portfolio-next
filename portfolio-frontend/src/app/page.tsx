@@ -35,10 +35,10 @@ export default function Home() {
                 Fitness, Surveys, and Podcasts.
               </p>
               <p>
-                I'm a lifelong learner, constantly keeping pace with the latest
+                I’m a lifelong learner, constantly keeping pace with the latest
                 industry trends. My passion lies in crafting robust and
                 user-friendly web applications that deliver exceptional value.
-                Throughout my career, I've honed my skills in both frontend and
+                Throughout my career, I’ve honed my skills in both frontend and
                 backend development through diverse projects. I thrive in
                 collaborative environments that value innovation and teamwork.
               </p>
