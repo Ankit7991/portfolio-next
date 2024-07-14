@@ -6,21 +6,17 @@ import {
 import React from "react";
 import Block from "../block/block";
 import Link from "next/link";
+import { bloxRandomTileData } from "./blox-random-tile-data";
 
 export interface IRandomTilesParams {
 	usedSpaces: IGridOccupiedArea[];
+	data?: {text: string; url?: string}[];
 }
 
-const data = [
-	{ text: "ankit" },
-	{ text: "node" },
-	{ text: "abc" },
-	{ text: "Projects", url: "/my/portfolio/blox/projects" },
-	{ text: 'about me', url: '/my/portfolio/blox' }
-];
 
-export default function RandomTiles({ usedSpaces }: IRandomTilesParams) {
-	const { freeSpaces, randomSpaces } = useRandomPositions(data, usedSpaces);
+
+export default function RandomTiles({ usedSpaces, data }: IRandomTilesParams) {
+	const { freeSpaces, randomSpaces } = useRandomPositions(data || bloxRandomTileData, usedSpaces);
 	// console.log(`^^^`, randomSpaces?.length, randomSpaces);
 	return (
 		<>
