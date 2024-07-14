@@ -21,7 +21,7 @@ const data = [
 
 export default function RandomTiles({ usedSpaces }: IRandomTilesParams) {
 	const { freeSpaces, randomSpaces } = useRandomPositions(data, usedSpaces);
-
+	// console.log(`^^^`, randomSpaces?.length, randomSpaces);
 	return (
 		<>
 			{randomSpaces?.map((el) => {
