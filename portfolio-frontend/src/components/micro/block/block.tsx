@@ -22,5 +22,5 @@ export default function Block({
     gridRowStart: rowStart,
     gridRowEnd: rowEnd,
 	};
-  return <div className={styles.block} style={obj}>{children}</div>;
+  return <div className={`${styles.block} relative`} style={{...obj}}>{children}</div>;
 }

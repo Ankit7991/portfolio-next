@@ -7,22 +7,28 @@ import LogoFindAnkit from "@/components/sections/logo/m.findankit";
 import { useEffect, useMemo, useState } from "react";
 import { useRandomPositions } from "@/hooks/get-random-positions.hook";
 import RandomTiles from "@/components/micro/random-tiles/random-tiles";
+import BlurrBackground from "@/components/common/BlurrBackground";
 
 const gte = (a: number, ref: number) => typeof (ref) === 'number' ? a >= ref : false;
 const lte = (b: number, ref: number) => typeof (ref) === 'number' ? b <= ref : false;
 const btwn = (max: number, min: number, ref: number) => gte(max, ref) && lte(min, ref);
 
 
-export default function Home() {
+
+export default function AboutMe() {
 	return (
 		<main className="fluid">
 			<SideBarIntro label="INTRO">
-				<Block rowStart={3} rowEnd={13} colStart={2} colEnd={9}>
-					<div className={styles.info}>
-						<p>Hi,</p>
-						<h1 className={styles.name}>Ankit</h1><strong>here</strong>
-
+				<Block rowStart={2} rowEnd={12} colStart={3} colEnd={12}>
+					<div className={`${styles.info} p-10 centerTransform w-3/4`}>
 						<div>
+							<span className="text-6xl">Hi</span><span className="text-2xl">🌊</span>
+						</div>
+						<div className="mt-2">
+							<span className="text-4xl">Ankit</span> <span className="text-1xl">here</span>
+						</div>
+
+						<div className="mt-7">
 							<p>
 								<span className={styles.mid}>I am a full-stack web developer.</span>
 							</p>
@@ -42,26 +48,12 @@ export default function Home() {
 					</div>
 				</Block>
 				<RandomTiles usedSpaces={[
-					[3, 13, 2, 9],
+					[2, 12, 3, 12],
 					[1, 13, 1, 2],
 					[5, 6, 10, 11],
 				]} />
-				{/* {
-					randomSpaces?.map(el => {
-						return <>
-							<Block rowStart={el.rowLine} colStart={el.colLine}>
-								<div className="fluid center cursor-pointer">
-									{el.info?.url ? 
-										<>
-											<Link href={el.info?.url}>{el.info?.text}</Link> 
-										</>
-										: el.info?.text}
-								</div>
-							</Block>
-						</>
-					})
-				} */}
 			</SideBarIntro>
+			<BlurrBackground url="/images/blox/davisuko-5E5N49RWtbA-unsplash.jpg" />
 		</main>
 	);
 }
