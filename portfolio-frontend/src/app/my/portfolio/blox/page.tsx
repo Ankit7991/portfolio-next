@@ -53,7 +53,7 @@ export default function AboutMe() {
 					[5, 6, 10, 11],
 				]} />
 			</SideBarIntro>
-			<BlurrBackground url="/images/blox/davisuko-5E5N49RWtbA-unsplash.jpg" />
+			<BlurrBackground imagePath="fruites/davisuko-5E5N49RWtbA-unsplash.jpg" />
 		</main>
 	);
 }

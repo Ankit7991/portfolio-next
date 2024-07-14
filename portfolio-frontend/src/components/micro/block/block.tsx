@@ -12,7 +12,9 @@ export interface IBlockParams extends IReactChildren {
 		rowEnd: number,
 		colStart: number, 
 		colEnd: number, 
-	]
+	],
+	title?: string;	
+	// rest?: {}
 }
 
 export default function Block({
@@ -21,7 +23,8 @@ export default function Block({
 	colStart,
 	rowEnd,
 	colEnd,
-	span
+	span,
+	...rest
 }: IBlockParams) {
 	const obj = {
 		gridRowStart: span?.[0] || rowStart,
@@ -29,5 +32,5 @@ export default function Block({
 		gridColumnStart: span?.[2] || colStart,
 		gridColumnEnd: span?.[3] || colEnd,
 	};
-	return <div className={`${styles.block} relative`} style={{ ...obj }}>{children}</div>;
+	return <div className={`${styles.block} relative`} style={{ ...obj }} {...rest}>{children}</div>;
 }

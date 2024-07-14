@@ -10,12 +10,13 @@ export interface IPortfolioItemParam {
 
 export default function PortfolioItem({text, imageUrl, link}: IPortfolioItemParam) {
 	return (
-		<div className={`${styles.item}`}>
+		<div className={`${styles.item} basis-1/4`}>
 			<div className={`${styles.imageContainer} fluid`}>
-				<img className={`${styles.image} fluid`} src={imageUrl} width={220} height={180} alt='surveybooker' />
+				<img className={`${styles.image} fluid`} src={imageUrl} width={220} height={180} alt='' />
 			</div>
-			<div className={`${styles.infoContainer} center fluid`}>
-				<a href={link} target="new">{text}🔗</a>
+			<div className={`${styles.infoContainer} center fluid text-center`}>
+				{link && <a href={link} target="new">{text}🔗</a>}
+				{!link && <span className=''>{text}</span>}
 			</div>
 		</div>
 	)

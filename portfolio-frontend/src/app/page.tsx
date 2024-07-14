@@ -23,7 +23,7 @@ export default function Home() {
 					[5, 8, 5, 8]
 				]} data={homeRandomTileData} />
 			</SideBarIntro>
-			<BlurrBackground imagePath="fruites/fruit-6633086_1920.jpg" />
+			<BlurrBackground imagePath="generic-backgrounds/joanna-kosinska-LAaSoL0LrYs-unsplash.jpg" />
 		</main>
 	);
 }

@@ -8,3 +8,9 @@ $fontSize: 60px;
 		font-size: $fontSize / 2;
 	}
 }
+
+.blox-parent {
+	* {
+		color: white;
+	}
+}

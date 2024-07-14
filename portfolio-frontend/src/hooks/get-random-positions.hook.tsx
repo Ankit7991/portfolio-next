@@ -1,9 +1,6 @@
+import { TileData } from "@/components/micro/random-tiles/random-tiles";
 import { useEffect, useState } from "react";
 
-export interface IRandomPositionElement {
-	text: string;
-	url?: string;
-}
 export type IGridOccupiedArea = [
 	rowStart: number,
 	rowEnd: number,
@@ -13,12 +10,12 @@ export type IGridOccupiedArea = [
 export interface IGridLocations {
 	rowLine: number;
 	colLine: number;
-	info?: IRandomPositionElement;
+	info?: TileData;
 }
 
 
 export function useRandomPositions(
-	elements: IRandomPositionElement[],
+	elements: TileData[],
 	usedSpaces: IGridOccupiedArea[]
 ) {
 	const [freeSpaces, setFreeSpaces] = useState<IGridLocations[]>([]);
