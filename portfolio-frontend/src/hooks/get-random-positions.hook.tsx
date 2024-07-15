@@ -1,5 +1,14 @@
+/* 
+	gpt optimizations
+
+	Avoid recalculating free spaces unless usedSpaces changes.
+	Use for loops instead of map for better performance in the calcSpace function.
+	Simplify the shuffling logic and avoid unnecessary copying.
+	Debounce or throttle updates to randomSpaces to prevent excessive re-renders.
+*/
+
 import { TileData } from "@/components/micro/random-tiles/random-tiles";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 
 export type IGridOccupiedArea = [
 	rowStart: number,
@@ -13,72 +22,62 @@ export interface IGridLocations {
 	info?: TileData;
 }
 
-
 export function useRandomPositions(
 	elements: TileData[],
-	usedSpaces: IGridOccupiedArea[]
+	usedSpaces: IGridOccupiedArea[],
+	randomize = false
 ) {
 	const [freeSpaces, setFreeSpaces] = useState<IGridLocations[]>([]);
-	const [randomSpaces, setRandomSpaces] = useState<IGridLocations[]>();
+	const [randomSpaces, setRandomSpaces] = useState<IGridLocations[]>([]);
 
 	useEffect(() => {
-		function calcSpace(usedSpaces: IGridOccupiedArea[], total = 1, r = null, c = null) {
-			let n = 12; // 12 Grids -> 13 lines
-			let rowLines = r || new Array(n).fill("").map((el, i) => i + 1);
-			let colLines = c || [...rowLines];
-			let grid: IGridLocations[] = [];
+		const calcSpace = (usedSpaces: IGridOccupiedArea[], total = 1, r = null, c = null) => {
+			const n = 12; // 12 Grids -> 13 lines
+			const rowLines = r || Array.from({ length: n }, (_, i) => i + 1);
+			const colLines = c || [...rowLines];
+			const grid: IGridLocations[] = [];
 
-			// check if any rowLine & colLine are free or not .. row/colLine is concept of grid css
-			function areaUsed([rowLine, colLine]: number[], usedSpaces: IGridOccupiedArea[]) {
-				let used = false;
-				usedSpaces.map((space) => {
-					if (used) return;
-					const [rowStart, rowEnd, colStart, colEnd] = space;
-					used =
-						colLine >= colStart &&
-						colLine < colEnd &&
-						rowLine >= rowStart &&
-						rowLine < rowEnd;
-				});
-				return used;
+			const areaUsed = ([rowLine, colLine]: number[], usedSpaces: IGridOccupiedArea[]) => {
+				return usedSpaces.some(([rowStart, rowEnd, colStart, colEnd]) =>
+					colLine >= colStart && colLine < colEnd &&
+					rowLine >= rowStart && rowLine < rowEnd
+				);
+			};
+
+			for (const rl of rowLines) {
+				for (const cl of colLines) {
+					if (!areaUsed([rl, cl], usedSpaces)) {
+						grid.push({ rowLine: rl, colLine: cl });
+					}
+				}
 			}
-			rowLines.map((rl) => {
-				colLines.map((cl) => {
-					let used = areaUsed([rl, cl], usedSpaces);
-					if (!used) grid.push({ rowLine: rl, colLine: cl });
-				});
-			});
 
 			setFreeSpaces(grid);
-		}
-
+		};
 
 		calcSpace(usedSpaces);
-	}, []);
+	}, [usedSpaces]);
 
 	useEffect(() => {
-
 		const getRandomElements = (arr: IGridLocations[], count: number) => {
-			const shuffled = arr.slice();
-			// for (let i = arr.length - 1; i > 0; i--) {
-			// 	const j = Math.floor(Math.random() * (i + 1));
-			// 	[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-			// }
-			let n = Math.abs(Math.floor(Math.random() * (arr.length-1-count)));
-			if (n > arr.length - 1 - count) n = Math.abs(arr.length - 1 - count);
-			console.log({arr, n, count, shuffled})
-			return shuffled.slice(n, n+count);
+			if (randomize) {
+				for (let i = arr.length - 1; i > 0; i--) {
+					const j = Math.floor(Math.random() * (i + 1));
+					[arr[i], arr[j]] = [arr[j], arr[i]];
+				}
+			}
+			return arr.slice(0, count);
 		};
-		const random = getRandomElements(freeSpaces, elements.length);
-		console.log(random);
-		const randomLocations = random.map((el, i: number) => {
-		// const randomLocations = freeSpaces.slice(Math.floor(Math.random() * (freeSpaces.length - elements.length) - 1), elements.length).map((el, i: number) => {
-			el.info = elements[i];
-			return el;
-		});
 
-		setRandomSpaces(randomLocations);
-	}, [freeSpaces])
+		if (freeSpaces.length > 0) {
+			const random = getRandomElements(freeSpaces, elements.length);
+			const randomLocations = random.map((el, i) => {
+				el.info = elements[i];
+				return el;
+			});
+			setRandomSpaces(randomLocations);
+		}
+	}, [freeSpaces, elements, randomize]);
 
 	return {
 		freeSpaces,

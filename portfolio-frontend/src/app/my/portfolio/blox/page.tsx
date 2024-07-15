@@ -19,7 +19,7 @@ export default function AboutMe() {
 	return (
 		<main className="fluid">
 			<SideBarIntro label="INTRO">
-				<Block rowStart={2} rowEnd={12} colStart={3} colEnd={12}>
+				<Block span={[2, 13, 2, 13]} >
 					<div className={`${styles.info} p-10 centerTransform w-3/4`}>
 						<div>
 							<span className="text-6xl">Hi</span><span className="text-2xl">🌊</span>
@@ -49,7 +49,7 @@ export default function AboutMe() {
 					</div>
 				</Block>
 				<RandomTiles usedSpaces={[
-					[2, 12, 3, 12],
+					[2, 13, 2, 13],
 					[1, 13, 1, 2],
 					[5, 6, 10, 11],
 				]} />

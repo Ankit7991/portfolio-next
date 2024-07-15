@@ -13,12 +13,13 @@ export interface TileData { text: string; note?: string; url?: string };
 export interface IRandomTilesParams {
 	usedSpaces: IGridOccupiedArea[];
 	data?: TileData[];
+	randomize?: boolean;
 }
 
 
 
-export default function RandomTiles({ usedSpaces, data }: IRandomTilesParams) {
-	const { freeSpaces, randomSpaces } = useRandomPositions(data || bloxRandomTileData, usedSpaces);
+export default function RandomTiles({ usedSpaces, data, randomize = false }: IRandomTilesParams) {
+	const { freeSpaces, randomSpaces } = useRandomPositions(data || bloxRandomTileData, usedSpaces, randomize);
 	// console.log(`^^^`, randomSpaces?.length, randomSpaces);
 	return (
 		<>

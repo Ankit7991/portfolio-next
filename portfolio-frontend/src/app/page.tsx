@@ -21,7 +21,7 @@ export default function Home() {
 				<RandomTiles usedSpaces={[
 					[1, 13, 1, 2], // this is the page label grid area
 					[5, 8, 5, 8]
-				]} data={homeRandomTileData} />
+				]} data={homeRandomTileData} randomize={true} />
 			</SideBarIntro>
 			<BlurrBackground imagePath="generic-backgrounds/joanna-kosinska-LAaSoL0LrYs-unsplash.jpg" />
 		</main>
