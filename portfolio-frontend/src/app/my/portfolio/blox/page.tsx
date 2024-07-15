@@ -45,6 +45,7 @@ export default function AboutMe() {
 								collaborative environments that value innovation and teamwork.
 							</p>
 						</div>
+						<p style={{color: 'black !important'}}>(Portfolio in progress)</p>
 					</div>
 				</Block>
 				<RandomTiles usedSpaces={[
