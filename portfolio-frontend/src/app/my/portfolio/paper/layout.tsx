@@ -13,12 +13,12 @@ export default function RootLayout({
 }>) {
 	return (
 		<>
-			<div>
-				<PaperThemeProvider>
+			<PaperThemeProvider>
+				<div className="bg-background h-screen w-full overflow-auto">
 					<NwsHeader />
 					{children}
-				</PaperThemeProvider>
-			</div>
+				</div>
+			</PaperThemeProvider>
 		</>
 	);
 }

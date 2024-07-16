@@ -7,7 +7,7 @@ const ThemeToggler = () => {
 
 	return (
 		<div >
-			<button onClick={toggleTheme}>Toggle Theme</button>
+			<button onClick={toggleTheme} className='border rounded-4 color'>Toggle Theme</button>
 		</div>
 	);
 };

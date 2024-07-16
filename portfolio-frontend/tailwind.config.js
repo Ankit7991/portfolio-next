@@ -12,6 +12,11 @@ module.exports = {
 				background: 'var(--color-background)',
 				text: 'var(--color-text)',
 			},
+			fontSize: {
+				largel: 'var(--text-l)',
+				largexl: 'var(--text-xl)',
+				largexxl: 'var(--text-xxl)',
+			}
 		},
 	},
 	plugins: [],

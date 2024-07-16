@@ -20,14 +20,20 @@
 		--color-accent: #25ced1;
 		--color-background: #fceade;
 		--color-text: #1b1b1b;
-	}
 
+	}
+	
 	[data-paper-theme="dark"] {
 		--color-primary: #ea526f;
 		--color-secondary: #ff8a5b;
 		--color-accent: #25ced1;
 		--color-background: #1a202c;
 		--color-text: #f50000;
+	}
+	html {
+		--text-l: 4em;
+		--text-xl: 5em;
+		--text-xxl: 7em;
 	}
 }
 
