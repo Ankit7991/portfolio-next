@@ -17,7 +17,7 @@ export default function Home() {
 					<div className="centerTransform">
 						<span className="text-6xl">Hi</span><span className="text-2xl">👋</span>
 						<br />
-						<span>Try out different portfolio ui's on random blocks.</span>
+						<span>{`Try out different portfolio ui's on random blocks.`}</span>
 						<br />
 						<span>Thanks for your visit 😊</span>
 						<br />
