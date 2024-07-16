@@ -20,6 +20,7 @@
 		--color-accent: #25ced1;
 		--color-background: #fceade;
 		--color-text: #1b1b1b;
+		--color-text-dim: #8e8e8e;
 
 	}
 	
@@ -29,11 +30,18 @@
 		--color-accent: #25ced1;
 		--color-background: #1a202c;
 		--color-text: #f50000;
+		--color-text-dim: #8e8e8e;
 	}
 	html {
-		--text-l: 4em;
-		--text-xl: 5em;
-		--text-xxl: 7em;
+		--text-large-l: 3.5em;
+		--text-large-xl: 5em;
+		--text-large-xxl: 7em;
+		--text-small-l: 2em;
+		--text-small-xl: 2.5em;
+		--text-small-xxl: 3em;
+		--text-micro-l: 0.7em;
+		--text-micro-xl: 1em;
+		--text-micro-xxl: 1.5em;
 	}
 }
 

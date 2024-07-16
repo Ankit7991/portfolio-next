@@ -22,27 +22,22 @@ export default function AboutMe() {
 				<Block span={[2, 13, 2, 13]} >
 					<div className={`${styles.info} p-10 centerTransform w-3/4`}>
 						<div>
-							<span className="text-6xl">Hi</span><span className="text-2xl">🌊</span>
+							<span className="text-6xl">Hi</span><span className="text-smalll">👋</span>
 						</div>
 						<div className="mt-2">
-							<span className="text-4xl">Ankit</span> <span className="text-1xl">here</span>
+							<span className="text-4xl">Ankit</span> <span className="text-1xl ml-2">here</span>
 						</div>
 
 						<div className="mt-7">
 							<p>
 								<span className={styles.mid}>I am a full-stack web developer.</span>
 							</p>
-							<p>
+							<p className="mt-3">
 								I’ve built and deployed projects in various domains like CRM,
 								Fitness, Surveys, and Podcasts.
 							</p>
-							<p>
-								I’m a lifelong learner, constantly keeping pace with the latest
-								industry trends. My passion lies in crafting robust and
-								user-friendly web applications that deliver exceptional value.
-								Throughout my career, I’ve honed my skills in both frontend and
-								backend development through diverse projects. I thrive in
-								collaborative environments that value innovation and teamwork.
+							<p className="text-justify mt-3">
+								I’m a lifelong learner, constantly keeping pace with the latest industry trends. My passion lies in crafting robust and user-friendly web applications that deliver exceptional value. Throughout my career, I’ve honed my skills in both frontend and backend development through diverse projects. I thrive in collaborative environments that value innovation and teamwork.
 							</p>
 						</div>
 						<p style={{color: 'black !important'}}>(Portfolio in progress)</p>

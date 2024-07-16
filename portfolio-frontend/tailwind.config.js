@@ -11,11 +11,18 @@ module.exports = {
 				accent: 'var(--color-accent)',
 				background: 'var(--color-background)',
 				text: 'var(--color-text)',
+				textdim: 'var(--color-text-dim)'
 			},
 			fontSize: {
-				largel: 'var(--text-l)',
-				largexl: 'var(--text-xl)',
-				largexxl: 'var(--text-xxl)',
+				largel: 'var(--text-large-l)',
+				largexl: 'var(--text-large-xl)',
+				largexxl: 'var(--text-large-xxl)',
+				smalll: 'var(--text-small-l)',
+				smallxl: 'var(--text-small-xl)',
+				smallxxl: 'var(--text-small-xxl)',
+				microl: 'var(--text-micro-l)',
+				microxl: 'var(--text-micro-xl)',
+				microxxl: 'var(--text-micro-xxl)',
 			}
 		},
 	},
