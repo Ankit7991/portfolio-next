@@ -10,7 +10,7 @@ export interface INwsHeadline {
 
 export const NwsHeadline = ({largeLable, smallLabel, textArr}: INwsHeadline) => {
 	return <>
-		<div className="w-3/5 text-text">
+		<div className="w-3/5 text-text sm:w-full">
 			<div>
 				<div className="text-largel text-justify">{largeLable}</div>
 				<div className="text-smallxl text-justify text-textdim">{smallLabel}</div>
