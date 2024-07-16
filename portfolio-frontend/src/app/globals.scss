@@ -5,48 +5,72 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
 
 @mixin josefinSansFont {
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
+	font-family: "Josefin Sans", sans-serif;
+	font-optical-sizing: auto;
+	font-weight: 500;
+	font-style: normal;
+}
+
+@layer base {
+	
+
+	[data-paper-theme="light"] {
+		--color-primary: #ea526f;
+		--color-secondary: #ff8a5b;
+		--color-accent: #25ced1;
+		--color-background: #fceade;
+		--color-text: #1b1b1b;
+	}
+
+	[data-paper-theme="dark"] {
+		--color-primary: #ea526f;
+		--color-secondary: #ff8a5b;
+		--color-accent: #25ced1;
+		--color-background: #1a202c;
+		--color-text: #f50000;
+	}
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 
-  scrollbar-width: thin; /* makes scrollbar thinner */
-  scrollbar-color: #888 #f1f1f1; /* thumb color and track color */
-  // scrollbar-gutter: stable;
+	scrollbar-width: thin;
+	/* makes scrollbar thinner */
+	scrollbar-color: #888 #f1f1f1;
+	/* thumb color and track color */
+	// scrollbar-gutter: stable;
 
-  &::-webkit-scrollbar-thumb {
-    background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
-    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
-    border-radius: 100px;
-  }
+	&::-webkit-scrollbar-thumb {
+		background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+		box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+		border-radius: 100px;
+	}
 }
 
 body {
-  margin: 0;
-  width: 100%;
-  height: 100vh;
-  @include josefinSansFont();
-//   background: url("/images/bg.jpg");
-//   background-size: ;
+	margin: 0;
+	width: 100%;
+	height: 100vh;
+	@include josefinSansFont();
+	//   background: url("/images/bg.jpg");
+	//   background-size: ;
 
-  &.dark {
-    background: black;
-    color: white;
-  }
+	&.dark {
+		background: black;
+		color: white;
+	}
 }
+
 
 .fluid {
-  width: 100%;
-  height: 100%;
+	width: 100%;
+	height: 100%;
 }
+
 .center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .centerTransform {
