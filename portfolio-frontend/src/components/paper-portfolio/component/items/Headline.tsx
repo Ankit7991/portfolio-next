@@ -10,17 +10,17 @@ export interface INwsHeadline {
 
 export const NwsHeadline = ({largeLable, smallLabel, textArr}: INwsHeadline) => {
 	return <>
-		<div className="w-3/5 text-text sm:w-full">
+		<div className="w-full md:w-full lg:w-3/5 text-text ">
 			<div>
-				<div className="text-largel text-justify">{largeLable}</div>
-				<div className="text-smallxl text-justify text-textdim">{smallLabel}</div>
+				<div className="text-smallxl md:text-smallxxl lg:text-largel text-justify">{largeLable}</div>
+				<div className="text-smalll lg:text-smallxl text-justify text-textdim">{smallLabel}</div>
 			</div>
 			<div className="mt-10">
 				{
 					textArr.map((el, i) => {
 						return <Fragment key={i}>
 							<p className="text-justify mb-3">
-								{!i && <span className="text-smallxl leading-3">{el[0]}</span>}
+								{!i && <span className="text-smalll lg:text-smallxl leading-3">{el[0]}</span>}
 								{!!i && <span>{el[0]}</span>}
 								<span>{el.slice(1)}</span>
 							</p>
