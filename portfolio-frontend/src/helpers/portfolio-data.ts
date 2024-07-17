@@ -1,8 +1,9 @@
+import { IPortfolioItemParam } from "@/app/my/portfolio/blox/projects/portfolio-item";
 
 
 interface IPortfolioData {
 	imageUrl: string;
-	appLink: string;
+	appLink?: string;
 	navigateTo?: string;
 	displayText: string;
 };
@@ -57,3 +58,4 @@ export const technologyData: ITechnologies[] = [
 	{ imageUrl: '/images/technologies/postgre.jpg', link: '', text: 'PostgreSQL' },
 	{ imageUrl: '/images/technologies/ts.png', link: '', text: 'Typescript' }
 ];
+

@@ -1,11 +1,11 @@
 .item {
-	width: 250px;
-	height: 200px;
+	// width: 250px;
+	// height: 200px;
 	border-radius: 10px;
 	position: relative;
 	overflow: hidden;
 	cursor: pointer;
-	border: 3px double black;
+	border: 2px solid black;
 	.imageContainer {
 		position: absolute;
 		left: 50%;

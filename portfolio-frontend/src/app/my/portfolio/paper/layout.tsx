@@ -14,7 +14,7 @@ export default function RootLayout({
 	return (
 		<>
 			<PaperThemeProvider>
-				<div className="bg-background h-screen w-full overflow-auto pl-10 pr-10">
+				<div className="bg-background h-screen w-full overflow-auto pl-10 pr-10 pb-20">
 					<NwsHeader />
 					{children}
 				</div>

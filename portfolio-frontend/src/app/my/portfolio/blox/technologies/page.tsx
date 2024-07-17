@@ -16,7 +16,7 @@ export default function Page() {
 						{
 							technologyData.map(el => {
 								return <Fragment key={el.text}>
-									<PortfolioItem imageUrl={el.imageUrl} link={el.link} text={el.text}/>
+									<PortfolioItem imageUrl={el.imageUrl} link={el.link} text={el.text} className='w-1/4 h-1/2'/>
 								</Fragment>
 							})
 						}

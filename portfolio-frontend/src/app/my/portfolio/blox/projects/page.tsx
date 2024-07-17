@@ -16,7 +16,7 @@ export default function Page() {
 						{
 							portfolioList.map(el => {
 								return <Fragment key={el.displayText}>
-									<PortfolioItem imageUrl={el.imageUrl} link={el.appLink} text={el.displayText}/>
+									<PortfolioItem imageUrl={el.imageUrl} link={el.appLink} text={el.displayText} className='w-1/4 h-1/2'/>
 								</Fragment>
 							})
 						}

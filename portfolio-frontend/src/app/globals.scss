@@ -12,7 +12,7 @@
 }
 
 @layer base {
-	
+
 
 	[data-paper-theme="light"] {
 		--color-primary: #ea526f;
@@ -23,7 +23,7 @@
 		--color-text-dim: #8e8e8e;
 
 	}
-	
+
 	[data-paper-theme="dark"] {
 		--color-primary: #ea526f;
 		--color-secondary: #ff8a5b;
@@ -32,6 +32,7 @@
 		--color-text: #f50000;
 		--color-text-dim: #8e8e8e;
 	}
+
 	html {
 		--text-large-l: 3.5em;
 		--text-large-xl: 5em;
@@ -93,4 +94,63 @@ body {
 	left: 50%;
 	top: 50%;
 	transform: translate(-50%, -50%);
+}
+
+
+
+
+/* paper theme viewports */
+// .paper-side-nav {
+// 	display: flex;
+
+// }
+// .paper-side-nav-item {
+// 	width: 200px;
+// 	height: 150px;
+// 	display: block;
+// }
+
+// @screen md {
+// 	.paper-side-nav {
+// 		min-height: 200px;
+// 		max-height: 400px;
+// 		flex-flow: row;
+// 	}
+// }
+
+// @screen lg {
+// 	.paper-side-nav {
+// 		max-height: 200px;
+// 		flex-flow: column;
+// 	}
+// }
+.paper-side-nav {
+	display: flex;
+	flex-direction: column;
+	/* Ensure column direction initially */
+}
+
+.paper-side-nav-item {
+	width: 200px;
+	height: 150px;
+	flex: 0 0 150px;
+	/* Fix height to 150px */
+	display: block;
+}
+
+@media (min-width: 768px) {
+	.paper-side-nav {
+		min-height: 200px;
+		max-height: 400px;
+		flex-direction: row;
+		/* Change to row direction on md screens */
+	}
+}
+
+@media (min-width: 1024px) {
+	.paper-side-nav {
+		max-height: 200px;
+		flex-direction: column;
+		/* Change back to column direction on lg screens */
+	}
 }
