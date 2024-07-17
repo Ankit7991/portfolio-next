@@ -14,7 +14,7 @@ export const NwsHeadline = ({ largeLable, smallLabel, textArr, gitImageUrl }: IN
 	return <>
 		<div className="w-full md:w-full lg:w-3/5 text-text ">
 			<div className="flex flex-col-reverse md:flex md:flex-row md:gap-5">
-				<PImage gitImageUrl={gitImageUrl} className="w-full md:w-3/5"/>
+				<PImage gitImageUrl={gitImageUrl} className="w-full md:w-3/5" clip={2}/>
 				<div>
 					<div className="text-smallxl md:text-smallxxl lg:text-largel text-justify">{largeLable}</div>
 					<div className="text-smalll lg:text-smallxl text-justify text-textdim">{smallLabel}</div>
