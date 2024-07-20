@@ -2,9 +2,9 @@
 
 import BlurrBackground from "@/components/common/BlurrBackground";
 import Block from "@/components/micro/block/block";
-import { homeRandomTileData } from "@/components/micro/random-tiles/home-random-tile-data";
 import RandomTiles from "@/components/micro/random-tiles/random-tiles";
 import SideBarIntro from '@/components/pages/sidebar-intro.pages';
+import { homeRandomTileData } from "./data/blox/home-random-tile-data";
 
 
 

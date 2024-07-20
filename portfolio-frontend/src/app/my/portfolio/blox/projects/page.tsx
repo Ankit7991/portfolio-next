@@ -5,7 +5,7 @@ import React, { Fragment } from 'react'
 import PortfolioItem from './portfolio-item'
 import RandomTiles from '@/components/micro/random-tiles/random-tiles'
 import BlurrBackground from '@/components/common/BlurrBackground'
-import { portfolioList } from '@/helpers/portfolio-data'
+import { portfolioList } from '@/app/data/portfolio-data'
 
 export default function Page() {
 	return (

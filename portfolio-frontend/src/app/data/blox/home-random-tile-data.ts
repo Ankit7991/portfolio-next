@@ -1,4 +1,4 @@
-import { TileData } from "./random-tiles";
+import { TileData } from "@/components/micro/random-tiles/random-tiles";
 
 export const homeRandomTileData: TileData[] = [
 	{ text: 'Blox Portfolio', url: '/my/portfolio/blox' },

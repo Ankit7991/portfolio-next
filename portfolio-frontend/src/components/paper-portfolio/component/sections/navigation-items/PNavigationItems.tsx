@@ -1,5 +1,5 @@
 import PortfolioItem from '@/app/my/portfolio/blox/projects/portfolio-item'
-import { PaperNavigations } from '@/helpers/navigation-data'
+import { PaperNavigations } from '@/app/data/navigation-data'
 import React, { Fragment } from 'react'
 
 export const PNavigationItems = () => {

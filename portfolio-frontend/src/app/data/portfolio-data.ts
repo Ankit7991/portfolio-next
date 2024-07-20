@@ -43,13 +43,13 @@ export const portfolioList: IPortfolioData[] = [
 
 
 
-interface ITechnologies {
-	imageUrl: string;
+export interface GenericExternalData {
+	imageUrl?: string;
 	link: string;
 	text: string;
 }
 
-export const technologyData: ITechnologies[] = [
+export const technologyData: GenericExternalData[] = [
 	{ imageUrl: '/images/technologies/node.jpg', link: '', text: 'Node.JS' },
 	{ imageUrl: '/images/technologies/react.png', link: '', text: 'React' },
 	{ imageUrl: '/images/technologies/angular.png', link: '', text: 'Angular' },
@@ -59,3 +59,12 @@ export const technologyData: ITechnologies[] = [
 	{ imageUrl: '/images/technologies/ts.png', link: '', text: 'Typescript' }
 ];
 
+
+
+export const profileListData: GenericExternalData[] = [
+	{ imageUrl: '/images/profiles/Linkedin.png', link: 'https://www.linkedin.com/in/findankit/', text: 'Linkedin' },
+	{ imageUrl: '/images/profiles/Github.png', link: 'https://github.com/Ankit7991', text: 'Github' },
+	{ imageUrl: '/images/profiles/hackerrank.png', link: 'https://www.hackerrank.com/profile/m_findankit', text: 'HackerRank' },
+	{ imageUrl: '/images/profiles/codewars.png', link: 'https://www.codewars.com/users/Ankit7991', text: 'Codewars' },
+	{ imageUrl: '/images/profiles/Leetcode.png', link: 'https://leetcode.com/u/ankit7991/', text: 'Leetcode' },
+];

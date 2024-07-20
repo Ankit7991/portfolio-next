@@ -1,8 +1,8 @@
-import { IReactChildren } from "@/types/comp-params.types";
+import { HtmlAttributes } from "@/types/common-attributes.typs";
 import React, { ReactNode, FC } from "react";
 import styles from "./block.module.scss";
 
-export interface IBlockParams extends IReactChildren {
+export interface IBlockParams extends HtmlAttributes {
 	colStart?: number;
 	rowStart?: number;
 	colEnd?: number;
@@ -32,5 +32,5 @@ export default function Block({
 		gridColumnStart: span?.[2] || colStart,
 		gridColumnEnd: span?.[3] || colEnd,
 	};
-	return <div className={`${styles.block} relative`} style={{ ...obj }} {...rest}>{children}</div>;
+	return <div {...rest} className={`${styles.block} relative ${rest.className}`} style={{ ...obj }}>{children}</div>;
 }

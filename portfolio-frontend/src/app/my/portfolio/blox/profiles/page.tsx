@@ -4,20 +4,20 @@ import SideBarIntro from '@/components/pages/sidebar-intro.pages'
 import React, { Fragment } from 'react'
 import RandomTiles from '@/components/micro/random-tiles/random-tiles'
 import BlurrBackground from '@/components/common/BlurrBackground'
-import PortfolioItem from '../projects/portfolio-item'
-import { technologyData } from '@/app/data/portfolio-data'
+import { profileListData } from '@/app/data/portfolio-data'
+import PortfolioItem from './portfolio-item'
 
 export default function Page() {
 	return (
 		<main className='fluid relative'>
 			<SideBarIntro label='TECHNOLOGIES'>
 				<Block span={[2,13, 2, 13]} rowStart={3} rowEnd={12} colStart={3} colEnd={11}>
-					<div className='fluid flex flex-row flex-wrap gap-5 p-10 justify-around overflow-y-auto '>
+					<div className='fluid overflow-y-auto center'>
 						{
-							technologyData.map(el => {
+							profileListData.map(el => {
 								return <Fragment key={el.text}>
-									<PortfolioItem imageUrl={el.imageUrl} link={el.link} text={el.text} className='w-1/4 h-1/2'/>
-								</Fragment>
+									<PortfolioItem imageUrl={el.imageUrl} link={el.link} text={el.text} className='w-1/4 h-1/2' />
+								</Fragment>	
 							})
 						}
 					</div>
