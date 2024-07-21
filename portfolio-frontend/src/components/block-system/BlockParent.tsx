@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect, useRef, Children, cloneElement, ReactNode, ReactElement } from 'react';
 import TheBlock, { ITheBlockProps } from './TheBlock';
 
@@ -20,23 +21,23 @@ const BlockParent: React.FC<IBlockParentProps> = ({ fraction, children, debug, d
 				const newUnit = parentWidth / fraction;
 				setUnit(newUnit);
 
-				if (window.innerWidth < 767) {
+				if ((window as any).innerWidth < 767) {
 					setScreenSize('sm');
-				} else if (window.innerWidth <= 991) {
+				} else if ((window as any).innerWidth <= 991) {
 					setScreenSize('md');
-				} else if (window.innerWidth <= 1150){
+				} else if ((window as any).innerWidth <= 1150){
 					console.log('here');
 					setScreenSize('lg');
-				} else if (window.innerWidth <= 1500) {
+				} else if ((window as any).innerWidth <= 1500) {
 					setScreenSize('xl')
 				}
 			}
 		};
 
-		window.addEventListener('resize', handleResize);
+		(window as any).addEventListener('resize', handleResize);
 		handleResize(); // Set initial unit size
 
-		return () => window.removeEventListener('resize', handleResize);
+		return () => (window as any).removeEventListener('resize', handleResize);
 	}, [fraction]);
 
 	// Extract and adjust data from children
