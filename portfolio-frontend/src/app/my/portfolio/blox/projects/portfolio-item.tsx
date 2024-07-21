@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './portfolio.module.scss';
 import Image from 'next/image';
-import { HtmlAttributes } from '@/types/common-attributes.typs';
+import { HtmlAttributes, ReactAttributes } from '@/types/common-attributes.typs';
 import Link from 'next/link';
 
-export interface IPortfolioItemParam extends HtmlAttributes {
+export interface IPortfolioItemParam  {
 	text?: string;
 	link?: string;
 	navigate?: string;
@@ -12,9 +12,9 @@ export interface IPortfolioItemParam extends HtmlAttributes {
 	externalUrl?: string;
 }
 
-export default function PortfolioItem({text, imageUrl, link, navigate, externalUrl, className, style}: IPortfolioItemParam) {
+export default function PortfolioItem({ text, imageUrl, link, navigate, externalUrl, className, style, ...rest }: IPortfolioItemParam & HtmlAttributes & ReactAttributes) {
 	return (
-		<div className={`${styles.item} ${className}`} style={style}>
+		<div className={`${styles.item} ${className}`} style={style} key={rest.key}>
 			<div className={`${styles.imageContainer} fluid`}>
 				<img className={`${styles.image} fluid`} src={externalUrl || imageUrl} width={220} height={180} alt='' />
 			</div>

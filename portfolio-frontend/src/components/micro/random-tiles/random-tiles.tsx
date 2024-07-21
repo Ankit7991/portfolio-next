@@ -19,7 +19,6 @@ export interface IRandomTilesParams {
 }
 
 
-
 export default function RandomTiles({ usedSpaces, data, randomize = false, checkActive = true }: IRandomTilesParams) {
 	const { freeSpaces, randomSpaces } = useRandomPositions(data || bloxRandomTileData, usedSpaces, randomize);
 

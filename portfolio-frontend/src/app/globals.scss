@@ -124,24 +124,19 @@ body {
 // 		flex-flow: column;
 // 	}
 // }
-.paper-side-nav {
-	display: flex;
-	flex-direction: column;
-	/* Ensure column direction initially */
-}
 
 .paper-side-nav-item {
 	width: 200px;
 	height: 150px;
-	flex: 0 0 150px;
+	flex: 0 0 150px; 
 	/* Fix height to 150px */
 	display: block;
 }
 
 @media (min-width: 768px) {
 	.paper-side-nav {
-		min-height: 200px;
-		max-height: 400px;
+		// min-height: 200px;
+		// max-height: 400px;
 		flex-direction: row;
 		/* Change to row direction on md screens */
 	}
@@ -149,7 +144,7 @@ body {
 
 @media (min-width: 1024px) {
 	.paper-side-nav {
-		max-height: 200px;
+		// max-height: 200px;
 		flex-direction: column;
 		/* Change back to column direction on lg screens */
 	}

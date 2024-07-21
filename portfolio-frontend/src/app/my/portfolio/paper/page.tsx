@@ -1,9 +1,14 @@
-import { HeadInterSection } from '@/components/paper-portfolio/component/sections/HeadInterSection'
-import { INwsHeadline, NwsHeadline } from '@/components/paper-portfolio/component/sections/Headline'
+'use client'
+import { BlockParent } from '@/components/block-system/BlockParent'
+import { TheBlock } from '@/components/block-system/TheBlock'
+import Block from '@/components/micro/block/block'
 import { PNavigationItems } from '@/components/paper-portfolio/component/sections/navigation-items/PNavigationItems'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { HeadInterSection } from './HeadInterSection'
+import { INwsHeadline, NwsHeadline } from './Headline'
 
-const PortfolioDataHome: { [key: string]: INwsHeadline | {} } = {
+
+const PortfolioDataHome: { [key: string]: INwsHeadline| {} } = {
 	headline: {
 		largeLable: `Crafting Tomorrow's Solutions`,
 		smallLable: `A Journey in Development`,
@@ -17,15 +22,47 @@ const PortfolioDataHome: { [key: string]: INwsHeadline | {} } = {
 }
 
 export default function PaperPortfolio() {
+
+	useEffect(() => {
+	},[])
+	
 	return (
 		<div>
 			<HeadInterSection />
+
+			<BlockParent>
+				<TheBlock position={[2, 3]} span={[3, 3]} id='1'>
+					<span>block 1</span>
+				</TheBlock>
+				<TheBlock position={[1, 2]} span={[1, 2]} id='2'>
+					<span>block 1</span>
+				</TheBlock>
+			</BlockParent>
+
+
+			{/* 
 			<div className='lg:flex'>
 				<NwsHeadline {...PortfolioDataHome.headline as INwsHeadline} />
-				<div className='w-1/5' style={{minHeight: '400px', border: '2px solid red'}}>
-				<PNavigationItems />
+				<div className='w-1/5' style={{ minHeight: '400px', border: '2px solid red' }}>
+					<div className='border border-blue-700 h-full overflow-auto justify-center '>
+						<div className='border border-orange-700 border-dashed h-full overflow-hidden'>
+							<PNavigationItems />
+			
+
+						</div>
+
+					</div>
 				</div>
 			</div>
+			<div className='lg: flex'>
+				<div className="w-full md:w-full lg:w-4/5 text-np_text h-96 border border-blue-700"></div>
+				<div className="w-full md:w-full lg:w-1/5 text-np_text h-96 border border-blue-700">
+					<div className='border border-red-700 h-full'>
+					<div className='border border-red-700 h-full'></div>
+
+					</div>
+				</div>
+			</div> */}
 		</div>
 	)
 }

@@ -37,9 +37,6 @@
 	}
 
 	&:hover {
-		transform: scale(1.3);
-		border: 1px solid black;
-		z-index: 10000;
 		.imageContainer {
 			transform: translate(-50%, -50%) scale(1);
 			&::after {
