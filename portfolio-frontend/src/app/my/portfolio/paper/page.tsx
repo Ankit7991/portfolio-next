@@ -8,7 +8,7 @@ import { HeadInterSection } from './HeadInterSection'
 import { INwsHeadline, NwsHeadline } from './Headline'
 
 
-const PortfolioDataHome: { [key: string]: INwsHeadline| {} } = {
+const PortfolioDataHome: { [key: string]: INwsHeadline | {} } = {
 	headline: {
 		largeLable: `Crafting Tomorrow's Solutions`,
 		smallLable: `A Journey in Development`,
@@ -24,18 +24,27 @@ const PortfolioDataHome: { [key: string]: INwsHeadline| {} } = {
 export default function PaperPortfolio() {
 
 	useEffect(() => {
-	},[])
-	
+	}, [])
+
 	return (
 		<div>
 			<HeadInterSection />
 
-			<BlockParent fraction={7}>
-				<TheBlock position={[0, 2]} span={[3, 3]} id='1'>
-					<span>block 1</span>
+			<BlockParent fraction={12} debug={true}>
+				<TheBlock
+					position={[0, 0]} span={[9, 5]}
+					sm={[[0, 3], ['full', 32]]}
+					md={[[0, 2], ['full', 9]]}
+					id='headline'
+				>
+					<NwsHeadline {...PortfolioDataHome.headline as INwsHeadline} />
 				</TheBlock>
-				<TheBlock position={[0, 0]} span={[1, 2]} id='2'>
-					<span>block 2</span>
+				<TheBlock 
+				position={[9, 0]} span={[3, 5]} 
+				sm={[[0, 0], ['full', 3]]}
+				md={[[0, 0], ['full', 2]]}
+				id='navigation'>
+					<span>block 1</span>
 				</TheBlock>
 			</BlockParent>
 

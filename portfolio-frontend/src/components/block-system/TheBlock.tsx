@@ -1,28 +1,34 @@
-import { CommonComponentAttributes } from '@/types/common-attributes.typs';
 import React from 'react';
 
-export interface ITheBlockProps extends CommonComponentAttributes {
+// Define the interface for TheBlock props
+type fullOrNumber = (number | 'full')[];
+export interface ITheBlockProps {
 	size?: 'sm' | 'md' | 'lg'; // Optional prop to specify screen size
-	sm?: [number[], number[]]; // Optional prop for small screens
-	md?: [number[], number[]]; // Optional prop for medium screens
-	lg?: [number[], number[]]; // Optional prop for large screens
+	sm?: [fullOrNumber, fullOrNumber]; // Optional prop for small screens
+	md?: [fullOrNumber, fullOrNumber]; // Optional prop for medium screens
+	lg?: [fullOrNumber, fullOrNumber]; // Optional prop for large screens
 	unit?: number; // Optional unit size
+	fraction?: number;
 	id: string; // Unique identifier for the block
 	children: React.ReactNode; // Children elements to render inside the block
-	position?: [number, number]; // Optional prop for position
-	span?: [number, number]; // Optional prop for span
+	position?: fullOrNumber; // Optional prop for position
+	span?: fullOrNumber; // Optional prop for span
+	debug?: boolean;
 }
 
+// Define TheBlock component
 const TheBlock: React.FC<ITheBlockProps> = ({
 	size = 'md',
 	sm,
 	md,
 	lg,
 	unit = 0, // Default to 0 if unit is not provided
+	fraction = 0,
 	id,
 	children,
 	position = [0, 0], // Default position
 	span = [1, 1], // Default span
+	debug
 }) => {
 	// Determine current size properties
 	const currentSize = size === 'sm' ? sm : size === 'lg' ? lg : md;
@@ -30,23 +36,29 @@ const TheBlock: React.FC<ITheBlockProps> = ({
 	// Use default position and span if currentSize is not provided
 	const [currentPosition, currentSpan] = currentSize || [position, span];
 
+	// Function to handle 'full' values
+	const resolveFullValue = (value: number | 'full') => `${(value === 'full' ? fraction : value) * unit}px`;
+
+
 	// Only apply styles if unit is provided
 	const style = unit ? {
 		position: 'absolute' as const,
-		left: `${currentPosition[1] * unit}px`,
-		top: `${currentPosition[0] * unit}px`,
-		width: `${currentSpan[1] * unit}px`,
-		height: `${currentSpan[0] * unit}px`,
-		border: '1px solid black',
-		display: 'flex',
-		justifyContent: 'center',
-		alignItems: 'center',
-		background: '#ccc',
+		left: resolveFullValue(currentPosition[0]),
+		top: resolveFullValue(currentPosition[1]),
+		width: resolveFullValue(currentSpan[0]),
+		height: resolveFullValue(currentSpan[1]),
+		...debug? {
+			border: '1px solid black',
+			background: '#0005',
+		} : {},
+		padding: '3px'
 	} : {};
 
 	return (
 		<div style={style} id={id}>
-			{children}
+			{debug ? <>
+				<p className='centerTransform'>ID ({id})</p>
+			</> : children}
 		</div>
 	);
 };

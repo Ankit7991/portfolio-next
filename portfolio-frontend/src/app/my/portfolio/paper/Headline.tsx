@@ -12,7 +12,7 @@ export interface INwsHeadline {
 
 export const NwsHeadline = ({ largeLable, smallLable, textArr, gitImageUrl }: INwsHeadline) => {
 	return <>
-		<div className="w-full md:w-full lg:w-4/5 text-np_text ">
+		<div className="w-full md:w-full text-np_text ">
 			<div className="flex flex-col-reverse md:flex md:flex-row md:gap-5">
 				<PImage gitImageUrl={gitImageUrl} className="w-full md:w-2/5" clip={2}/>
 				<div>
