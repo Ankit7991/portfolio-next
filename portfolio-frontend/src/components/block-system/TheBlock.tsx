@@ -7,6 +7,7 @@ export interface ITheBlockProps {
 	sm?: [fullOrNumber, fullOrNumber]; // Optional prop for small screens
 	md?: [fullOrNumber, fullOrNumber]; // Optional prop for medium screens
 	lg?: [fullOrNumber, fullOrNumber]; // Optional prop for large screens
+	xl?: [fullOrNumber, fullOrNumber]; // Optional prop for large screens
 	unit?: number; // Optional unit size
 	fraction?: number;
 	id: string; // Unique identifier for the block
@@ -23,6 +24,7 @@ const TheBlock: React.FC<ITheBlockProps> = ({
 	sm,
 	md,
 	lg,
+	xl,
 	unit = 0, // Default to 0 if unit is not provided
 	fraction = 0,
 	id,
@@ -33,7 +35,7 @@ const TheBlock: React.FC<ITheBlockProps> = ({
 	develop
 }) => {
 	// Determine current size properties
-	const currentSize = size === 'sm' ? sm : size === 'lg' ? lg : md;
+	const currentSize = size === 'sm' ? sm : size === 'lg' ? lg : size === 'xl' ? xl : md;
 
 	// Use default position and span if currentSize is not provided
 	const [currentPosition, currentSpan] = currentSize || [position, span];

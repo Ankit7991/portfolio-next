@@ -43,11 +43,11 @@ export default function PaperPortfolio() {
 		<div>
 			<HeadInterSection />
 
-			<BlockParent fraction={12} debug={true} develop={true}>
+			<BlockParent fraction={12} debug={false} develop={false}>
 				<TheBlock
 					position={[0, 0]} span={[10, 6]}
+					sm={[[0, 3], ['full', 29]]}
 					md={[[0, 2], ['full', 9]]}
-					sm={[[0, 3], ['full', 32]]}
 					id='headline'
 				>
 					<NwsHeadline {...PortfolioDataHome.headline as INwsHeadline} />
@@ -55,8 +55,8 @@ export default function PaperPortfolio() {
 
 				<TheBlock
 					position={[10, 0]} span={[2, 6]}
-					md={[[0, 0], ['full', 2]]}
 					sm={[[0, 0], ['full', 3]]}
+					md={[[0, 0], ['full', 2]]}
 					id='navigation'
 				>
 					<span>block 1</span>
@@ -64,8 +64,8 @@ export default function PaperPortfolio() {
 
 				<TheBlock
 					position={[0, 6]} span={['full', 6]}
-					md={[[0, 9], ['full', 9]]}
 					sm={[[0, 32], ['full', 32]]}
+					md={[[0, 11], ['full', 12]]}
 					id='about-me'
 				>
 					<NwsHeadline2 {...PortfolioDataHome.aboutAuthor as INwsHeadline}/>

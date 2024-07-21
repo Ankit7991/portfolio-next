@@ -20,13 +20,14 @@ const BlockParent: React.FC<IBlockParentProps> = ({ fraction, children, debug, d
 				const newUnit = parentWidth / fraction;
 				setUnit(newUnit);
 
-				if (window.innerWidth < 576) {
+				if (window.innerWidth < 767) {
 					setScreenSize('sm');
-				} else if (window.innerWidth <= 767) {
-					setScreenSize('lg');
-				} else if(window.innerWidth <= 991){
+				} else if (window.innerWidth <= 991) {
 					setScreenSize('md');
-				} else if (window.innerWidth >= 1150) {
+				} else if (window.innerWidth <= 1150){
+					console.log('here');
+					setScreenSize('lg');
+				} else if (window.innerWidth <= 1500) {
 					setScreenSize('xl')
 				}
 			}
