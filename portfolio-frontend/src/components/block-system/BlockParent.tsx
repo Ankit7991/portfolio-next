@@ -15,6 +15,7 @@ const BlockParent: React.FC<IBlockParentProps> = ({ fraction, children, debug, d
 	const containerRef = useRef<HTMLDivElement>(null); // Reference to the parent div
 
 	useEffect(() => {
+		if (typeof window == 'undefined') return;
 		const handleResize = () => {
 			if (containerRef.current) {
 				const parentWidth = containerRef.current.offsetWidth; // Get parent div width
