@@ -1,6 +1,6 @@
 'use client'
-import { BlockParent } from '@/components/block-system/BlockParent'
-import { TheBlock } from '@/components/block-system/TheBlock'
+import BlockParent from '@/components/block-system/BlockParent'
+import TheBlock from '@/components/block-system/TheBlock'
 import Block from '@/components/micro/block/block'
 import { PNavigationItems } from '@/components/paper-portfolio/component/sections/navigation-items/PNavigationItems'
 import React, { useEffect, useState } from 'react'
@@ -30,12 +30,12 @@ export default function PaperPortfolio() {
 		<div>
 			<HeadInterSection />
 
-			<BlockParent>
-				<TheBlock position={[2, 3]} span={[3, 3]} id='1'>
+			<BlockParent fraction={7}>
+				<TheBlock position={[0, 2]} span={[3, 3]} id='1'>
 					<span>block 1</span>
 				</TheBlock>
-				<TheBlock position={[1, 2]} span={[1, 2]} id='2'>
-					<span>block 1</span>
+				<TheBlock position={[0, 0]} span={[1, 2]} id='2'>
+					<span>block 2</span>
 				</TheBlock>
 			</BlockParent>
 

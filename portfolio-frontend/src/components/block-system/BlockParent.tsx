@@ -1,32 +1,51 @@
-'use client'
-import { CommonComponentAttributes } from '@/types/common-attributes.typs'
-import React, { useEffect, useState } from 'react'
-import { ITheBlockParam } from './TheBlock';
+import React, { useState, useEffect, Children, cloneElement, ReactNode, ReactElement } from 'react';
+import TheBlock, { ITheBlockProps } from './TheBlock';
 
-export const BlockParent = (param: CommonComponentAttributes) => {
-	const [blockInfo, setBlockInfo] = useState<ITheBlockParam[]>([]);
+interface IBlockParentProps {
+	fraction: number; // Number of fractions to divide the width into
+	children: ReactNode; // Children elements to render inside the parent
+}
+
+const BlockParent: React.FC<IBlockParentProps> = ({ fraction, children }) => {
+	const [containerSize, setContainerSize] = useState({ width: '1000px', height: '700px' });
+	const [unit, setUnit] = useState<number | undefined>(undefined); // Initialize as undefined
+	const [screenSize, setScreenSize] = useState<'sm' | 'md' | 'lg'>('md');
 
 	useEffect(() => {
-		if (param.children) {
-			const info = React?.Children?.map(param.children, (child) => {
-				if (React.isValidElement(child) && child.props.position && child.props.span) {
-					return {
-						id: child.props.id,
-						position: child.props.position,
-						span: child.props.span,
-					};
-				}
-				return null;
-			});
+		if (typeof window !== 'undefined') { // Check if code is running in the browser
+			const handleResize = () => {
+				const newUnit = window.innerWidth / fraction;
+				setUnit(newUnit);
 
-			if(info) setBlockInfo(info);
+				if (window.innerWidth < 600) {
+					setScreenSize('sm');
+				} else if (window.innerWidth >= 1200) {
+					setScreenSize('lg');
+				} else {
+					setScreenSize('md');
+				}
+			};
+
+			window.addEventListener('resize', handleResize);
+			handleResize(); // Set initial unit size
+
+			return () => window.removeEventListener('resize', handleResize);
 		}
-	}, [param.children]);
+	}, [fraction]);
+
+	// Extract and adjust data from children
+	const blocks = Children.map(children, (child): ReactElement | null => {
+		if (React.isValidElement(child) && child.type === TheBlock) {
+			return cloneElement(child as ReactElement<ITheBlockProps>, { size: screenSize, unit });
+		}
+		return null;
+	});
 
 	return (
-		<div>
-			{param.children}
-			<pre>{JSON.stringify(blockInfo, null, 2)}</pre>
+		<div style={{ position: 'relative', width: containerSize.width, height: containerSize.height }}>
+			{blocks}
 		</div>
 	);
-}
+};
+
+export default BlockParent;
