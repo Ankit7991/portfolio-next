@@ -1,5 +1,4 @@
 'use client'
-import BlockParent from '@/components/block-system/BlockParent'
 import TheBlock from '@/components/block-system/TheBlock'
 import Block from '@/components/micro/block/block'
 import { PNavigationItems } from '@/components/paper-portfolio/component/sections/navigation-items/PNavigationItems'
@@ -7,6 +6,10 @@ import React, { useEffect, useState } from 'react'
 import { HeadInterSection } from './HeadInterSection'
 import { INwsHeadline, NwsHeadline } from './Headline'
 import { NwsHeadline2 } from './Headline2'
+import dynamic from 'next/dynamic';
+
+const BlockParent = dynamic(() => import('@/components/block-system/BlockParent'), { ssr: false });
+
 
 
 const PortfolioDataHome: { [key: string]: INwsHeadline | {} } = {
