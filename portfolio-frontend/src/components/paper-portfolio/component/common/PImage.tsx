@@ -7,6 +7,8 @@ interface IPImage {
 	imageUrl?: string;
 	className?: string;
 	clip?: 1 | 2 | 3;
+	width?: number;
+	height?: number;
 }
 
 const clipPaths = [
@@ -16,11 +18,11 @@ const clipPaths = [
 	'polygon(1% 9%, 3% 0%, 8% 4%, 11% 0%, 57% 1%, 68% 4%, 66% 0%, 85% 2%, 99% 1%, 97% 30%, 99% 45%, 99% 64%, 100% 78%, 92% 91%, 100% 87%, 100% 95%, 89% 99%, 38% 99%, 24% 100%, 19% 90%, 19% 100%, 1% 100%, 4% 81%, 1% 41%)'
 ]
 
-export const PImage = ({gitImageUrl, imageUrl, className, clip}: IPImage) => {
+export const PImage = ({gitImageUrl, imageUrl, className, clip, width, height}: IPImage) => {
 	const url = gitImageUrl ? constants.imgPrefix+gitImageUrl+'?raw=true' : imageUrl;
 	return (
 		<>
-			{url && <Image src={url} width={500} height={500} alt={url} className={className || ''} style={{ clipPath: clipPaths[clip || 0]}}/>}
+			{url && <Image src={url} width={width || 500} height={height || 100} alt={url} className={className || ''} style={{ clipPath: clipPaths[clip || 0]}}/>}
 		</>
 	)
 }

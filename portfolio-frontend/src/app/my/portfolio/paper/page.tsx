@@ -6,6 +6,7 @@ import { PNavigationItems } from '@/components/paper-portfolio/component/section
 import React, { useEffect, useState } from 'react'
 import { HeadInterSection } from './HeadInterSection'
 import { INwsHeadline, NwsHeadline } from './Headline'
+import { NwsHeadline2 } from './Headline2'
 
 
 const PortfolioDataHome: { [key: string]: INwsHeadline | {} } = {
@@ -18,7 +19,19 @@ const PortfolioDataHome: { [key: string]: INwsHeadline | {} } = {
 				`My approach combines technical expertise with creative problem-solving, ensuring that every line of code contributes to robust, scalable solutions. Embracing challenges as stepping stones to growth, I am committed to delivering excellence while staying at the forefront of emerging technologies. Join me as I navigate through the ever-evolving landscape of development, driven by curiosity, determination, and a relentless pursuit of innovation.`
 			],
 		gitImageUrl: 'illustrations/growth-600nw-2298571729.webp',
+	},
+	aboutAuthor: {
+		largeLable: "About the Author",
+		smallLable: "A Glimpse into the Journey",
+		textArr: [
+			"Ankit is a full-stack web developer with over 4 years of experience in technologies like Node, React, and MySQL. They have built and deployed projects in various domains, including CRM, fitness, surveys, and podcasts.",
+			"As a lifelong learner, Ankit constantly keeps pace with the latest industry trends. Their passion lies in crafting robust and user-friendly web applications that deliver exceptional value. Throughout their career, they have honed their skills in both frontend and backend development through diverse projects. Ankit thrives in collaborative environments that value innovation and teamwork.",
+			"In addition to their professional work, Ankit holds a B.E/B.Tech in Electronics & Communications. Their technical skill set includes languages like JavaScript and TypeScript, web presentation using HTML and CSS/SCSS, backend development with Node.js and Nest.js, frontend development with React, Angular, and Next.js, and database management with MySQL, PostgreSQL, and Redis Cache.",
+			"Join Ankit as they continue to navigate the ever-evolving landscape of technology, driven by curiosity, determination, and a relentless pursuit of innovation."
+		],
+		imageUrl: "/images/me/me-blurred.jpg"
 	}
+
 }
 
 export default function PaperPortfolio() {
@@ -30,21 +43,32 @@ export default function PaperPortfolio() {
 		<div>
 			<HeadInterSection />
 
-			<BlockParent fraction={12} debug={true}>
+			<BlockParent fraction={12} debug={true} develop={true}>
 				<TheBlock
-					position={[0, 0]} span={[9, 5]}
-					sm={[[0, 3], ['full', 32]]}
+					position={[0, 0]} span={[10, 6]}
 					md={[[0, 2], ['full', 9]]}
+					sm={[[0, 3], ['full', 32]]}
 					id='headline'
 				>
 					<NwsHeadline {...PortfolioDataHome.headline as INwsHeadline} />
 				</TheBlock>
-				<TheBlock 
-				position={[9, 0]} span={[3, 5]} 
-				sm={[[0, 0], ['full', 3]]}
-				md={[[0, 0], ['full', 2]]}
-				id='navigation'>
+
+				<TheBlock
+					position={[10, 0]} span={[2, 6]}
+					md={[[0, 0], ['full', 2]]}
+					sm={[[0, 0], ['full', 3]]}
+					id='navigation'
+				>
 					<span>block 1</span>
+				</TheBlock>
+
+				<TheBlock
+					position={[0, 6]} span={['full', 6]}
+					md={[[0, 9], ['full', 9]]}
+					sm={[[0, 32], ['full', 32]]}
+					id='about-me'
+				>
+					<NwsHeadline2 {...PortfolioDataHome.aboutAuthor as INwsHeadline}/>
 				</TheBlock>
 			</BlockParent>
 

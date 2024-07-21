@@ -3,7 +3,7 @@ import React from 'react';
 // Define the interface for TheBlock props
 type fullOrNumber = (number | 'full')[];
 export interface ITheBlockProps {
-	size?: 'sm' | 'md' | 'lg'; // Optional prop to specify screen size
+	size?: 'sm' | 'md' | 'lg' | 'xl'; // Optional prop to specify screen size
 	sm?: [fullOrNumber, fullOrNumber]; // Optional prop for small screens
 	md?: [fullOrNumber, fullOrNumber]; // Optional prop for medium screens
 	lg?: [fullOrNumber, fullOrNumber]; // Optional prop for large screens
@@ -14,6 +14,7 @@ export interface ITheBlockProps {
 	position?: fullOrNumber; // Optional prop for position
 	span?: fullOrNumber; // Optional prop for span
 	debug?: boolean;
+	develop?: boolean;
 }
 
 // Define TheBlock component
@@ -28,7 +29,8 @@ const TheBlock: React.FC<ITheBlockProps> = ({
 	children,
 	position = [0, 0], // Default position
 	span = [1, 1], // Default span
-	debug
+	debug,
+	develop
 }) => {
 	// Determine current size properties
 	const currentSize = size === 'sm' ? sm : size === 'lg' ? lg : md;
@@ -50,6 +52,9 @@ const TheBlock: React.FC<ITheBlockProps> = ({
 		...debug? {
 			border: '1px solid black',
 			background: '#0005',
+		} : {},
+		...develop ? {
+			border: '1px solid black',
 		} : {},
 		padding: '3px'
 	} : {};
