@@ -45,7 +45,7 @@ export default function PaperPortfolio() {
 		<div>
 			<HeadInterSection />
 
-			<BlockParent fraction={12} debug={false} develop={true}>
+			<BlockParent fraction={12} debug={false} develop={false}>
 				<TheBlock
 					lg={[[0, 0], [10, 6.5]]}
 					md={[[0, 2], ['full', 19]]}
