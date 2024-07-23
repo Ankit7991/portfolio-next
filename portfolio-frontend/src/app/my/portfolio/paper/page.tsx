@@ -48,27 +48,28 @@ export default function PaperPortfolio() {
 
 			<BlockParent fraction={12} debug={false} develop={false}>
 				<TheBlock
-					position={[0, 0]} span={[10, 6]}
-					sm={[[0, 3], ['full', 29]]}
-					md={[[0, 2], ['full', 9]]}
+					lg={[[0, 0], [10, 6.5]]}
+					md={[[0, 2], ['full', 19]]}
+					init={[[0, 2], ['full', 7.5]]}
 					id='headline'
 				>
 					<NwsHeadline {...PortfolioDataHome.headline as INwsHeadline} />
 				</TheBlock>
 
 				<TheBlock
-					position={[10, 0]} span={[2, 6]}
-					sm={[[0, 0], ['full', 3]]}
+					lg={[[10, 0], [2, 6.5]]}
 					md={[[0, 0], ['full', 2]]}
+					init={[[0, 0], ['full', 2]]}
 					id='navigation'
 				>
-					<span>block 1</span>
+					<PNavigationItems />
 				</TheBlock>
 
 				<TheBlock
-					position={[0, 6]} span={['full', 6]}
-					sm={[[0, 32], ['full', 32]]}
-					md={[[0, 11], ['full', 12]]}
+					lg={[[0, 6.5], ['full', 6]]}
+					md={[[0, 21], ['full', 18]]}
+					init={[[0, 9.5], ['full', 8]]}
+					xxl={[[0, 6.5], ['full', 5.5]]}
 					id='about-me'
 				>
 					<NwsHeadline2 {...PortfolioDataHome.aboutAuthor as INwsHeadline}/>

@@ -3,26 +3,24 @@
 import PortfolioItem from '@/app/my/portfolio/blox/projects/portfolio-item'
 import { PaperNavigations } from '@/app/data/navigation-data'
 import React, { Fragment, useEffect, useRef, useState } from 'react'
+import style from './PNavigationItem.module.scss';
 
 export const PNavigationItems = () => {
-	const parentref = useRef(null);
-	const [display, setDisplay] = useState(false);
-
-	useEffect(() => {
-		if(parentref.current) {
-			const el = parentref.current as any;
-			el.style.height = `${el.clientHeight}px`;
-			setDisplay(true);
-		}
-	}, [parentref])
 
 	return (
-		<div ref={parentref} className='paper-side-nav h-full relative fluid item-center items-center flex flex-col gap-3 p-5 w-1/5' >
-			{
-				display && PaperNavigations.map((el, i) => {
-					return <PortfolioItem className='paper-side-nav-item border relative' key={i.toString()} {...el}/>
-				})
-			}
+		<div className='h-full flex lg:flex-col lg:items-center'>
+			<div className='w-10 lg:rotate-0 sm:-rotate-90 relative center sm:text-np_microxxl  lg:text-np_smalll'>
+				<h1>Navigation</h1>
+			</div>
+			<div className='flex gap-5 h-full lg:flex-wrap overflow-auto lg:felx-col lg:flex-row lg:justify-center '>
+				{
+					PaperNavigations.map((el, i) => {
+						return <div className='item w-36 lg:h-36 h-full shrink-0 grow-0'>
+							<PortfolioItem className='fluid' key={i.toString()} {...el} />
+						</div>
+					})
+				}
+			</div>
 		</div>
 	)
 }

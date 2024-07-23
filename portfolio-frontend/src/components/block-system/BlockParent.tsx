@@ -11,7 +11,7 @@ interface IBlockParentProps {
 
 const BlockParent: React.FC<IBlockParentProps> = ({ fraction, children, debug, develop }) => {
 	const [unit, setUnit] = useState<number | undefined>(undefined); // Initialize as undefined
-	const [screenSize, setScreenSize] = useState<'sm' | 'md' | 'lg' | 'xl'>('md');
+	const [screenSize, setScreenSize] = useState<'sm' | 'md' | 'lg' | 'xl' | 'xxl'>('md');
 	const containerRef = useRef<HTMLDivElement>(null); // Reference to the parent div
 
 	useEffect(() => {
@@ -21,17 +21,22 @@ const BlockParent: React.FC<IBlockParentProps> = ({ fraction, children, debug, d
 				const parentWidth = containerRef.current.offsetWidth; // Get parent div width
 				const newUnit = parentWidth / fraction;
 				setUnit(newUnit);
+			}
 
-				if ((window as any).innerWidth < 767) {
-					setScreenSize('sm');
-				} else if ((window as any).innerWidth <= 991) {
-					setScreenSize('md');
-				} else if ((window as any).innerWidth <= 1150){
-					console.log('here');
-					setScreenSize('lg');
-				} else if ((window as any).innerWidth <= 1500) {
-					setScreenSize('xl')
-				}
+			if (window.innerWidth > 1536) {
+				setScreenSize('xxl');
+			} 
+			else if (window.innerWidth > 1280) {
+				setScreenSize('xl');
+			} 
+			else if (window.innerWidth > 1024) {
+				setScreenSize('lg');
+			}
+			else if (window.innerWidth > 768) {
+				setScreenSize('md');
+			} 
+			else if (window.innerWidth > 640) {
+				setScreenSize('sm');
 			}
 		};
 

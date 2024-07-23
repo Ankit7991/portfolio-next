@@ -5,5 +5,6 @@ export const bloxRandomTileData: TileData[] = [
 	{ text: "Projects", note: 'List of projects', url: "/my/portfolio/blox/projects" },
 	{ text: "Technologies", note: 'List of technologies', url: "/my/portfolio/blox/technologies" },
 	{ text: "Profiles", note: '', url: "/my/portfolio/blox/profiles" },
+	{ text: "Resume", note: '', url: "/my/portfolio/blox/resume" },
 	{ text: "home", url: '/' },
 ];
