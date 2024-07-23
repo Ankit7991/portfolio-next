@@ -28,10 +28,11 @@ const PortfolioDataHome: { [key: string]: INwsHeadline | {} } = {
 		textArr: [
 			"Ankit is a full-stack web developer with over 4 years of experience in technologies like Node, React, and MySQL. They have built and deployed projects in various domains, including CRM, fitness, surveys, and podcasts.",
 			"As a lifelong learner, Ankit constantly keeps pace with the latest industry trends. Their passion lies in crafting robust and user-friendly web applications that deliver exceptional value. Throughout their career, they have honed their skills in both frontend and backend development through diverse projects. Ankit thrives in collaborative environments that value innovation and teamwork.",
-			"In addition to their professional work, Ankit holds a B.E/B.Tech in Electronics & Communications. Their technical skill set includes languages like JavaScript and TypeScript, web presentation using HTML and CSS/SCSS, backend development with Node.js and Nest.js, frontend development with React, Angular, and Next.js, and database management with MySQL, PostgreSQL, and Redis Cache.",
+			" Their technical skill set includes languages like JavaScript and TypeScript, web presentation using HTML and CSS/SCSS, backend development with Node.js and Nest.js, frontend development with React, Angular, and Next.js, and database management with MySQL, PostgreSQL, and Redis Cache.",
 			"Join Ankit as they continue to navigate the ever-evolving landscape of technology, driven by curiosity, determination, and a relentless pursuit of innovation."
 		],
-		imageUrl: "/images/me/me-blurred.jpg"
+		imageUrl: "/images/me/me-blurred.jpg",
+		inBetweenText: "In addition to their professional work, Ankit holds a B.E/B.Tech in Electronics & Communications."
 	}
 
 }
@@ -47,15 +48,18 @@ export default function PaperPortfolio() {
 
 			<BlockParent fraction={12} debug={false} develop={true}>
 				<TheBlock
+					xl={[[0, 0], [10, 5]]}
 					lg={[[0, 0], [10, 6.5]]}
-					md={[[0, 2], ['full', 19]]}
-					init={[[0, 3], ['full', 32]]}
+					md={[[0, 2], ['full', 9.5]]}
+					init={[[0, 3], ['full', 24]]}
 					id='headline'
+					className='overflow-hidden'
 				>
-					<NwsHeadline {...PortfolioDataHome.headline as INwsHeadline} />
+					<NwsHeadline {...PortfolioDataHome.headline as INwsHeadline}/>
 				</TheBlock>
 
 				<TheBlock
+					xl={[[10, 0], [2, 5]]}
 					lg={[[10, 0], [2, 6.5]]}
 					md={[[0, 0], ['full', 2]]}
 					init={[[0, 0], ['full', 3]]}
@@ -65,9 +69,10 @@ export default function PaperPortfolio() {
 				</TheBlock>
 
 				<TheBlock
+					xl={[[0, 5], ['full', 6]]}
 					lg={[[0, 6.5], ['full', 6]]}
-					md={[[0, 21], ['full', 18]]}
-					init={[[0, 35], ['full', 32]]}
+					md={[[0, 11.5], ['full', 11.5]]}
+					init={[[0, 27], ['full', 24]]}
 					xxl={[[0, 6.5], ['full', 5.5]]}
 					id='about-me'
 				>

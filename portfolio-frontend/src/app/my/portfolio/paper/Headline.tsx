@@ -9,6 +9,7 @@ export interface INwsHeadline {
 	textArr: string[];
 	gitImageUrl?: string;
 	imageUrl?: string;
+	inBetweenText?:string;
 }
 
 export const NwsHeadline = ({ largeLable, smallLable, textArr, gitImageUrl }: INwsHeadline) => {
@@ -17,8 +18,8 @@ export const NwsHeadline = ({ largeLable, smallLable, textArr, gitImageUrl }: IN
 			<div className="flex flex-col-reverse md:flex md:flex-row md:gap-5">
 				<PImage gitImageUrl={gitImageUrl} className="w-full md:w-2/5" clip={2}/>
 				<div>
-					<div className="text-np_smallxl md:text-np_smallxxl lg:text-np_largel">{largeLable}</div>
-					<div className="text-np_smalll lg:text-np_smallxxl text-np_textdim">{smallLable}</div>
+					<div className="text-np_smallxl md:text-np_smallxl lg:text-np_smallxxl">{largeLable}</div>
+					<div className="text-np_smalll lg:text-np_smallxl text-np_textdim">{smallLable}</div>
 				</div>
 			</div>
 			<div className="mt-10">
