@@ -57,7 +57,7 @@ const BlockParent: React.FC<IBlockParentProps> = ({ fraction, children, debug, d
 	return (
 		<div ref={containerRef} style={{ position: 'relative', width: '100%', height: '100%' }}>
 			{blocks}
-			<span className='fixed top-0 right-0 text-np_microl'>{screenSize}<span>({window.innerWidth})</span></span>
+			{develop && <span className='fixed top-0 right-0 text-np_microl'>{screenSize}<span>({window.innerWidth})</span></span>}
 		</div>
 	);
 };
