@@ -45,11 +45,11 @@ export default function PaperPortfolio() {
 		<div>
 			<HeadInterSection />
 
-			<BlockParent fraction={12} debug={false} develop={false}>
+			<BlockParent fraction={12} debug={false} develop={true}>
 				<TheBlock
 					lg={[[0, 0], [10, 6.5]]}
 					md={[[0, 2], ['full', 19]]}
-					init={[[0, 2], ['full', 7.5]]}
+					init={[[0, 3], ['full', 32]]}
 					id='headline'
 				>
 					<NwsHeadline {...PortfolioDataHome.headline as INwsHeadline} />
@@ -58,7 +58,7 @@ export default function PaperPortfolio() {
 				<TheBlock
 					lg={[[10, 0], [2, 6.5]]}
 					md={[[0, 0], ['full', 2]]}
-					init={[[0, 0], ['full', 2]]}
+					init={[[0, 0], ['full', 3]]}
 					id='navigation'
 				>
 					<PNavigationItems />
@@ -67,7 +67,7 @@ export default function PaperPortfolio() {
 				<TheBlock
 					lg={[[0, 6.5], ['full', 6]]}
 					md={[[0, 21], ['full', 18]]}
-					init={[[0, 9.5], ['full', 8]]}
+					init={[[0, 35], ['full', 32]]}
 					xxl={[[0, 6.5], ['full', 5.5]]}
 					id='about-me'
 				>

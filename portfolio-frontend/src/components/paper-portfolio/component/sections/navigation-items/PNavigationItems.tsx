@@ -9,7 +9,7 @@ export const PNavigationItems = () => {
 
 	return (
 		<div className='h-full flex lg:flex-col lg:items-center'>
-			<div className='w-10 lg:rotate-0 sm:-rotate-90 relative center sm:text-np_microxxl  lg:text-np_smalll'>
+			<div className='w-10 lg:rotate-0 -rotate-90 relative center text-np_microxl  lg:text-np_smalll'>
 				<h1>Navigation</h1>
 			</div>
 			<div className='flex gap-5 h-full lg:flex-wrap overflow-auto lg:felx-col lg:flex-row lg:justify-center '>

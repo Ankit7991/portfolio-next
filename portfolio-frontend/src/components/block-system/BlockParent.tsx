@@ -23,19 +23,22 @@ const BlockParent: React.FC<IBlockParentProps> = ({ fraction, children, debug, d
 				setUnit(newUnit);
 			}
 
-			if (window.innerWidth > 1536) {
+			const w = window.innerWidth;
+			const btwn = (a:number, b:number) => w > a && w < b;
+
+			if (w > 1280) {
 				setScreenSize('xxl');
 			} 
-			else if (window.innerWidth > 1280) {
+			else if (btwn(1024, 1280)) {
 				setScreenSize('xl');
 			} 
-			else if (window.innerWidth > 1024) {
+			else if (btwn(768, 1024)) {
 				setScreenSize('lg');
 			}
-			else if (window.innerWidth > 768) {
+			else if (btwn(640, 768)) {
 				setScreenSize('md');
 			} 
-			else if (window.innerWidth > 640) {
+			else {
 				setScreenSize('sm');
 			}
 		};
@@ -45,7 +48,7 @@ const BlockParent: React.FC<IBlockParentProps> = ({ fraction, children, debug, d
 
 		return () => (window as any).removeEventListener('resize', handleResize);
 	}, [fraction]);
-	
+
 	// Extract and adjust data from children
 	const blocks = Children.map(children, (child): ReactElement | null => {
 		if (React.isValidElement(child) && child.type === TheBlock) {
