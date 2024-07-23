@@ -48,7 +48,7 @@ export default function PaperPortfolio() {
 
 			<BlockParent fraction={12} debug={false} develop={false}>
 				<TheBlock
-					xl={[[0, 0], [10, 5]]}
+					xl={[[0, 0], [10, 5.5]]}
 					lg={[[0, 0], [10, 6.5]]}
 					md={[[0, 2], ['full', 9.5]]}
 					init={[[0, 3], ['full', 24]]}
@@ -59,7 +59,7 @@ export default function PaperPortfolio() {
 				</TheBlock>
 
 				<TheBlock
-					xl={[[10, 0], [2, 5]]}
+					xl={[[10, 0], [2, 5.5]]}
 					lg={[[10, 0], [2, 6.5]]}
 					md={[[0, 0], ['full', 2]]}
 					init={[[0, 0], ['full', 3]]}
@@ -69,11 +69,11 @@ export default function PaperPortfolio() {
 				</TheBlock>
 
 				<TheBlock
-					xl={[[0, 5], ['full', 6]]}
-					lg={[[0, 6.5], ['full', 6]]}
+					xl={[[0, 5.5], ['full', 6]]}
+					lg={[[0, 6.5], ['full', 7]]}
 					md={[[0, 11.5], ['full', 11.5]]}
 					init={[[0, 27], ['full', 24]]}
-					xxl={[[0, 6.5], ['full', 5.5]]}
+					// xxl={[[0, 6.5], ['full', 5.5]]}
 					id='about-me'
 				>
 					<NwsHeadline2 {...PortfolioDataHome.aboutAuthor as INwsHeadline}/>

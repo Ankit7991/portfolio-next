@@ -8,8 +8,8 @@ import { INwsHeadline } from "./Headline";
 export const NwsHeadline2 = ({ largeLable, smallLable, textArr, gitImageUrl, imageUrl, inBetweenText }: INwsHeadline) => {
 	return <>
 		<div className="w-full md:w-full text-np_text ">
-			<div className="flex flex-col-reverse md:flex md:flex-col">
-				<div className="flex flex-col-reverse md:flex md:flex-row md:gap-5">
+			<div className="flex flex-col-reverse md:flex-col">
+				<div className="flex flex-col-reverse md:flex-row-reverse md:gap-5">
 					<div className="">
 						<div className="">
 							{
@@ -31,14 +31,14 @@ export const NwsHeadline2 = ({ largeLable, smallLable, textArr, gitImageUrl, ima
 					</div>
 				</div>
 				<div className="flex">
-					<p className="text-np_microxxl md:w-3/5 text-justify hidden md:visible">{inBetweenText}</p>
-					<div className="flex-col text-left md:text-right md:w-full border">
+					<p className="text-np_microxl lg:text-np_microxxl xl:text-np_smalll md:w-4/5 lg:w-3/5 text-justify hidden md:block">{inBetweenText}</p>
+					<div className="flex-col text-left md:text-right md:w-full">
 						<div className="text-np_smallxl md:text-np_smallxxl lg:text-np_largel">{largeLable}</div>
 						<div className="text-np_smalll lg:text-np_smallxxl text-np_textdim">{smallLable}</div>
 					</div>
 				</div>
 			</div>
-			<div className="mt-10 sm:mt-0.5">
+			<div className="mt-10 sm:mt-0.5 md:mt-5">
 				{
 					textArr.map((el, i) => {
 						if (i < 2) return;

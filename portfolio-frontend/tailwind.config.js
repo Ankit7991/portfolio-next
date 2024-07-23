@@ -23,6 +23,9 @@ module.exports = {
 				np_microl: 'var(--text-micro-l)',
 				np_microxl: 'var(--text-micro-xl)',
 				np_microxxl: 'var(--text-micro-xxl)',
+				np_nanol: 'var(--text-nano-l)',
+				np_nanoxl: 'var(--text-nano-xl)',
+				np_nanoxxl: 'var(--text-nano-xxl)',
 			}
 		},
 	},
