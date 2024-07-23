@@ -15,7 +15,7 @@ export const PNavigationItems = () => {
 			<div className='flex gap-5 h-full lg:flex-wrap overflow-auto lg:felx-col lg:flex-row lg:justify-center '>
 				{
 					PaperNavigations.map((el, i) => {
-						return <div className='item w-36 lg:h-36 h-full shrink-0 grow-0'>
+						return <div className='item w-36 lg:h-36 h-full shrink-0 grow-0' key={i}>
 							<PortfolioItem className='fluid' key={i.toString()} {...el} />
 						</div>
 					})

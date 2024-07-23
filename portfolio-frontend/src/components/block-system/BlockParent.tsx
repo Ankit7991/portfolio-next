@@ -45,7 +45,7 @@ const BlockParent: React.FC<IBlockParentProps> = ({ fraction, children, debug, d
 
 		return () => (window as any).removeEventListener('resize', handleResize);
 	}, [fraction]);
-
+	
 	// Extract and adjust data from children
 	const blocks = Children.map(children, (child): ReactElement | null => {
 		if (React.isValidElement(child) && child.type === TheBlock) {
