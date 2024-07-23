@@ -10,11 +10,12 @@ export interface IPortfolioItemParam  {
 	navigate?: string;
 	imageUrl?: string;
 	externalUrl?: string;
+	active?: boolean;
 }
 
 export default function PortfolioItem({ text, imageUrl, link, navigate, externalUrl, className, style, ...rest }: IPortfolioItemParam & HtmlAttributes & ReactAttributes) {
 	return (
-		<div className={`${styles.item} ${className}`} style={style} key={rest.key}>
+		<div className={`${styles.item} text-np_microxl ${className} ${rest.active ? styles.alreadyActive : ''}`} style={style} key={rest.key}>
 			<div className={`${styles.imageContainer} fluid`}>
 				<img className={`${styles.image} fluid`} src={externalUrl || imageUrl} width={220} height={180} alt='' />
 			</div>

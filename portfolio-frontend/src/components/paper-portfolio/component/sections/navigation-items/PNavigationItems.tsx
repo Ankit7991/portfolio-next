@@ -16,7 +16,7 @@ export const PNavigationItems = () => {
 				{
 					PaperNavigations.map((el, i) => {
 						return <div className='item w-36 lg:h-36 h-full shrink-0 grow-0' key={i}>
-							<PortfolioItem className='fluid' key={i.toString()} {...el} />
+							<PortfolioItem className='fluid' key={i.toString()} active={true} {...el} />
 						</div>
 					})
 				}

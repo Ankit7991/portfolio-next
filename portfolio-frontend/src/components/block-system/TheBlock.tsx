@@ -1,9 +1,10 @@
+import { HtmlAttributes } from '@/types/common-attributes.typs';
 import React from 'react';
 
 // Define the interface for TheBlock props
 type fullOrNumber = (number | 'full')[];
 export interface ITheBlockProps {
-	size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl'; 
+	size?: 'init' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'; 
 	sm?: [fullOrNumber, fullOrNumber]; 
 	md?: [fullOrNumber, fullOrNumber]; 
 	lg?: [fullOrNumber, fullOrNumber]; 
@@ -18,9 +19,9 @@ export interface ITheBlockProps {
 	develop?: boolean;
 }
 
-const order: ITheBlockProps['size'][] = ['sm', 'md', 'lg', 'xl', 'xxl'];
+const order: ITheBlockProps['size'][] = ['init', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
-const TheBlock: React.FC<ITheBlockProps> = ({
+const TheBlock: React.FC<ITheBlockProps & HtmlAttributes> = ({
 	size = 'md',
 	sm,
 	md,
@@ -33,10 +34,11 @@ const TheBlock: React.FC<ITheBlockProps> = ({
 	id,
 	children,
 	debug,
-	develop
+	develop,
+	...rest
 }) => {
 	const sizes = {
-		sm, md, lg, xl, xxl
+		sm, md, lg, xl, xxl, init
 	}
 	// let currentSize = size === 'sm' ? sm : size === 'lg' ? lg : size === 'xl' ? xl : size === 'xxl' ? xxl : md;
 	let currentSize = sizes[size];
@@ -79,7 +81,7 @@ const TheBlock: React.FC<ITheBlockProps> = ({
 	} : {};
 
 	return (
-		<div style={style} id={id}>
+		<div style={style} id={id} {...rest}>
 			{debug ? <>
 				<div className='centerTransform h-1/2'>
 					<p>ID ({id})</p>

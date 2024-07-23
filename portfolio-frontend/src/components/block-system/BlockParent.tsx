@@ -11,7 +11,7 @@ interface IBlockParentProps {
 
 const BlockParent: React.FC<IBlockParentProps> = ({ fraction, children, debug, develop }) => {
 	const [unit, setUnit] = useState<number | undefined>(undefined); // Initialize as undefined
-	const [screenSize, setScreenSize] = useState<'sm' | 'md' | 'lg' | 'xl' | 'xxl'>('md');
+	const [screenSize, setScreenSize] = useState<ITheBlockProps['size']>('md');
 	const containerRef = useRef<HTMLDivElement>(null); // Reference to the parent div
 
 	useEffect(() => {
@@ -24,22 +24,25 @@ const BlockParent: React.FC<IBlockParentProps> = ({ fraction, children, debug, d
 			}
 
 			const w = window.innerWidth;
-			const btwn = (a:number, b:number) => w > a && w < b;
+			const btwn = (a: number, b: number) => w > a && w <= b;
 
-			if (w > 1280) {
+			if (w > 1536) {
 				setScreenSize('xxl');
-			} 
-			else if (btwn(1024, 1280)) {
+			}
+			if (btwn(1280, 1536)) {
 				setScreenSize('xl');
-			} 
-			else if (btwn(768, 1024)) {
+			}
+			else if (btwn(1024, 1280)) {
 				setScreenSize('lg');
 			}
-			else if (btwn(640, 768)) {
+			else if (btwn(768, 1024)) {
 				setScreenSize('md');
-			} 
-			else {
+			}
+			else if (btwn(640, 768)) {
 				setScreenSize('sm');
+			}
+			else {
+				setScreenSize('init');
 			}
 		};
 
