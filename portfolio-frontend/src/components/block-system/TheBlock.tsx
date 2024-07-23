@@ -3,7 +3,7 @@ import React from 'react';
 // Define the interface for TheBlock props
 type fullOrNumber = (number | 'full')[];
 export interface ITheBlockProps {
-	size?: 'sm' | 'md' | 'lg' | 'xl' | 'xxl'; 
+	size?: 'init' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'; 
 	sm?: [fullOrNumber, fullOrNumber]; 
 	md?: [fullOrNumber, fullOrNumber]; 
 	lg?: [fullOrNumber, fullOrNumber]; 
@@ -18,7 +18,7 @@ export interface ITheBlockProps {
 	develop?: boolean;
 }
 
-const order: ITheBlockProps['size'][] = ['sm', 'md', 'lg', 'xl', 'xxl'];
+const order: ITheBlockProps['size'][] = ['init', 'sm', 'md', 'lg', 'xl', 'xxl'];
 
 const TheBlock: React.FC<ITheBlockProps> = ({
 	size = 'md',
@@ -36,7 +36,7 @@ const TheBlock: React.FC<ITheBlockProps> = ({
 	develop
 }) => {
 	const sizes = {
-		sm, md, lg, xl, xxl
+		sm, md, lg, xl, xxl, init
 	}
 	// let currentSize = size === 'sm' ? sm : size === 'lg' ? lg : size === 'xl' ? xl : size === 'xxl' ? xxl : md;
 	let currentSize = sizes[size];
