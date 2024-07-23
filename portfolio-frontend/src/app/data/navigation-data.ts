@@ -6,4 +6,9 @@ export const PaperNavigations: IPortfolioItemParam[] = [
 		navigate: '/',
 		text: 'HOME'
 	},
+	{
+		imageUrl: 'https://media.karousell.com/media/photos/products/2021/11/30/wooden_block_1638253599_4f60d705_progressive.jpg', 
+		navigate: '/my/portfolio/blox',
+		text: 'Blox Portfolio'
+	},
 ]
